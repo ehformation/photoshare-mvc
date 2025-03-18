@@ -37,3 +37,21 @@
     --bs-input-padding-x: 1.2rem;
     --bs-input-border-radius: 8px;
 }
+
+.btn-primary {
+    background-color: rgba(var(--bs-primary-rgb), 1);
+    border-color: rgba(var(--bs-primary-rgb), 1);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: rgba(var(--bs-secondary-rgb), 1);
+    border-color: rgba(var(--bs-secondary-rgb), 1);
+    color: white;
+}
+
+.btn-success {
+    background-color: rgba(var(--bs-success-rgb), 1);
+    border-color: rgba(var(--bs-success-rgb), 1);
+    color: black;
+}
