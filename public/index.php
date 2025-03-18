@@ -12,11 +12,14 @@ spl_autoload_register(function($class) {
     }
 });
 
+/*On charge les routes disponible*/
 Router::loadRoutes();
 
+/* On recupere l'URL et la méthode saisi par le client */
 $requestUrl = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
+/* On execute la methode du clesse precise en fonction de l'URL */
 Dispatcher::dispatch($requestUrl, $requestMethod);
 
 ?>

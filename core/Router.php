@@ -24,6 +24,7 @@ class Router {
 
     public static function loadRoutes() {
         self::add('GET', '/', 'HomeController@index');
+        self::add('GET', '/login', 'AuthController@login'); //Afficher le formulaire 
     }
 
 }
