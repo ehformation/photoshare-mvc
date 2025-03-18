@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Core;
+namespace Project\Core;
 
 class Router {
 
@@ -25,9 +25,5 @@ class Router {
     public static function loadRoutes() {
         self::add('GET', '/', 'HomeController@index');
     }
-
-
-
-
 
 }
