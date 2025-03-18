@@ -1,3 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap');
+
 :root, [data-bs-theme=light]{
-    --bs-primary-rgb: 93, 46, 140;
+
+    /** Couleurs principales **/
+    --bs-primary-rgb: 93, 46, 140;  
+    --bs-secondary-rgb: 46, 196, 182;
+    --bs-success-rgb: 204, 255, 102;
+
+    /* Fond & texte */
+    --bs-body-bg-rgb: 245, 245, 250;
+    --bs-body-color-rgb: 50, 50, 50;
+    
+    /* Typographie */
+    --bs-body-font-family: 'Inter', sans-serif;
+    --bs-headings-font-family: 'Bebas Neue', sans-serif;
+    --bs-body-font-size: 1rem;
+    --bs-body-line-height: 1.6;
+
+    /* Bordures & Ombres */
+    --bs-border-radius: 12px;
+    --bs-border-radius-lg: 16px;
+    --bs-border-radius-sm: 8px;
+    --bs-box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+
+    /* Espacements */
+    --bs-spacer: 1rem;
+    --bs-gutter-x: 1.5rem;
+
+    /* Boutons */
+    --bs-btn-padding-y: 0.75rem;
+    --bs-btn-padding-x: 1.5rem;
+    --bs-btn-border-radius: 10px;
+
+    /* Inputs */
+    --bs-input-padding-y: 0.6rem;
+    --bs-input-padding-x: 1.2rem;
+    --bs-input-border-radius: 8px;
 }
