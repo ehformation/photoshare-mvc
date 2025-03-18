@@ -7,6 +7,10 @@ use Core\Router;
 class Dispatcher {
 
     public static function dispatch($requestUri, $requestMethod){
+
+        $basePath = '/photoshare/project/public';
+        $requestUri = str_replace($basePath, '', $requestUri);
+
         $route = Router::match($requestUri, $requestMethod);
 
         if(!$route){
