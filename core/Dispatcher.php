@@ -1,13 +1,13 @@
 <?php 
 
-namespace Project\Core;
+namespace Core;
 
-use Project\Core\Router;
+use Core\Router;
 
 class Dispatcher {
 
     public static function dispatch($requestUri, $requestMethod){
-        $route = Router::match($requestUri, $requestMethod)
+        $route = Router::match($requestUri, $requestMethod);
 
         if(!$route){
            echo '<h1>404 - Page non trouvé</h1>';
@@ -15,7 +15,7 @@ class Dispatcher {
         }
 
         list($controllerName, $method) = explode('@', $route['controller']);
-        $controllerClass = "Project\\Controllers\\$controllerName";
+        $controllerClass = "Controllers\\$controllerName";
 
         if(!class_exists($controllerClass)){
            echo "<h1>500 - Class introuvable : $controllerClass</h1>";

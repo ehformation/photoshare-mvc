@@ -1,10 +1,10 @@
 <?php 
 
-namespace Project\Core;
+namespace Core;
 
 class Router {
 
-    private $routes = [];
+    private static $routes = [];
 
     public static function add($method, $uri, $controller) {
         self::$routes[] = [
