@@ -11,7 +11,7 @@ class Router {
             'method' => strtoupper($method),
             'uri' => $uri, 
             'controller' => $controller
-        ] 
+        ];
     }
 
     public static function match($requestUrl, $requestMethod){
@@ -23,7 +23,7 @@ class Router {
     }
 
     public static function loadRoutes() {
-        self::add('GET', '/', 'HomeController@index')
+        self::add('GET', '/', 'HomeController@index');
     }
 
 
