@@ -44,7 +44,6 @@ class UserModel extends Model{
         } catch (PDOException $e) {
             error_log("Erreur SQL register: " . $e->getMessage());
             return false;
-        }
-        
+        }  
     }
 }

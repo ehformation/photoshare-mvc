@@ -2,9 +2,12 @@
 namespace Controllers;
 
 use Core\Controller;
+use Models\PostModel;
 
 class HomeController extends Controller {
     public function index() {
-        $this->render('home');
+        $postModel = new PostModel();
+        $posts = $postModel->getPosts();
+        $this->render('home', ['posts' => $posts]);
     }
 }

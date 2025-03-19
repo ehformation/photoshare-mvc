@@ -12,11 +12,11 @@
             <?php endif; ?>
             <form action="<?php echo BASE_URL ?>/login" method="post">
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
+                    <label for="email" class="form-label">Email</label>
                     <input type="email" name="email" class="form-control" id="email">
                 </div>
                 <div class="mb-3">
-                    <label for="pass" class="form-label">Password</label>
+                    <label for="pass" class="form-label">Mot de passe</label>
                     <input type="password" name="pass" class="form-control" id="pass">
                 </div>
                 <button type="submit" class="btn btn-primary">Connexion</button>
