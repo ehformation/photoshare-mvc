@@ -30,5 +30,21 @@ class PostModel extends Model{
         
     }
 
+    public function addPost($imageName, $legende, $user_id) {
+        try {
+            $pdo = $this->connectDb();
+
+            $req = $pdo->prepare("INSERT INTO posts (image, legende, user_id) VALUES (?, ?, ?)");
+
+            $addPosts = $req->execute([$imageName, $legende, $user_id]);
+
+            return $addPosts; 
+
+        } catch (PDOException $e) {
+            error_log("Erreur SQL addPosts: " . $e->getMessage());
+            return false;
+        }  
+    }
+
 
 }
