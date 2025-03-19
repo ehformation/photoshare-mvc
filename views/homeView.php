@@ -4,7 +4,7 @@
     <!-- Formulaire d'ajout de post -->
     <div class="card my-4">
         <div class="card-body">
-            <form method="post" action="/post/add" enctype="multipart/form-data" >
+            <form method="post" action="<?php echo BASE_URL; ?>/post/add" enctype="multipart/form-data" >
                 <div class="mb-4">
                     <label for="postImage" class="form-label">Choisir une image</label>
                     <input class="form-control form-control-lg" id="postImage" type="file">
