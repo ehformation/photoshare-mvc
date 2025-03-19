@@ -3,13 +3,12 @@ namespace Controllers;
 
 use Core\Controller;
 use Models\UserModel;
+use Core\Helper;
 
 class AuthController extends Controller {
     public function login() {
         if(isset($_SESSION['user'])){
-            $base = BASE_URL;
-            header("Location: $base/");
-            exit();
+            Helper::redirect('/');
         }
         $this->render('login');
     }
@@ -26,9 +25,7 @@ class AuthController extends Controller {
             //Si l'utilisateur existe le controller va lui créer une sessions   
             if($user){
                 $_SESSION['user'] = $user;
-                $base = BASE_URL;
-                header("Location: $base/");
-                exit();
+                Helper::redirect('/');
             }else{
                 $this->render('login', ['error' => "Identifiants invalides"]);
             }
