@@ -2,8 +2,9 @@
 
 <div class="container">
     <div class="row justify-content-lg-center">
-        <div class="col-lg-4">
-            <h1>Photoshare - Login</h1>
+        <div class="col-lg-4 text-center mt-4">
+            <img style="max-width:200px" src="<?php echo BASE_URL ?>/assets/img/logo-ps.png" alt="">
+            <h1 class="my-3">Connexion</h1>
             <?php if (!empty($error)) : ?>
                 <div class="alert alert-danger">
                     <p class="mb-0"><?php echo $error; ?></p>

@@ -28,6 +28,7 @@ class Router {
         self::add('POST', '/login', 'AuthController@loginAction');
         self::add('GET', '/register', 'AuthController@register'); //Afficher le formulaire d'inscription
         self::add('POST', '/register', 'AuthController@registerAction');
+        self::add('GET', '/logout', 'AuthController@logout');
     }
 
 }

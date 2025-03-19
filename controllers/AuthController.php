@@ -56,4 +56,9 @@ class AuthController extends Controller {
         }
     }
 
+    public function logout(){
+        session_destroy();
+        Helper::redirect('/login');
+    }
+
 }
