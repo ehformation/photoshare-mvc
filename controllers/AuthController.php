@@ -19,7 +19,13 @@ class AuthController extends Controller {
             $user = $userModel->login($email, $pass);
 
             //Si l'utilisateur existe le controller va lui créer une sessions   
-
+            if($user){
+                $_SESSION['user'] = $user;
+                header("Location: /");
+                exit();
+            }else{
+                $this->render('login');
+            }
         }
     }
 }

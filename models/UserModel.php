@@ -15,10 +15,10 @@ class UserModel extends Model{
             $req->execute([$email, $pass]);
 
             $user = $req->fetch(PDO::FETCH_ASSOC);
-
             return $user;
         } catch (PDOException $e) {
             error_log("Erreur SQL login: " . $e->getMessage());
+            return false;
         }
         
     }
