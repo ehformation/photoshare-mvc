@@ -31,4 +31,29 @@ class AuthController extends Controller {
             }
         }
     }
+
+    public function register() {
+        // if(isset($_SESSION['user'])){
+        //     Helper::redirect('/');
+        // }
+        $this->render('register');
+    }
+
+    public function registerAction() {
+        if(isset($_POST['email'])){
+            $email = trim($_POST['email']);
+            $username = trim($_POST['username']);
+            $pass = trim($_POST['pass']);
+
+            $userModel = new UserModel();
+            $register = $userModel->register($email, $username, $pass);
+
+            if($register){
+                Helper::redirect('/login');
+            }else{
+                $this->render('register', ['error' => "Inscription non effectuée. Veuillez réessayer"]);
+            }
+        }
+    }
+
 }

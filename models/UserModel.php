@@ -3,8 +3,6 @@
 namespace Models;
 
 use Core\Model;
-use PDO;
-use PDOException;
 
 class UserModel extends Model{
 
@@ -20,6 +18,23 @@ class UserModel extends Model{
             return $user;
         } catch (PDOException $e) {
             error_log("Erreur SQL login: " . $e->getMessage());
+            return false;
+        }
+        
+    }
+
+    public function register($email, $username, $pass) {
+        try {
+            $pdo = $this->connectDb();
+
+            $req = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+
+            $register = $req->execute([$username, $email, $pass]);
+
+            return $register; 
+
+        } catch (PDOException $e) {
+            error_log("Erreur SQL register: " . $e->getMessage());
             return false;
         }
         
