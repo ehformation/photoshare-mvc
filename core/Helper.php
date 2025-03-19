@@ -17,9 +17,9 @@ class Helper {
         $maxImageSize = 5 * 1024 * 1024; //5Mo
         $allowedImageTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'];
 
-        $imageName      = $image['name']; //yoyo.png
-        $imageTmpPath   = $image['tmp_name']; //chemin tampon
-        $imageSize      = $image['size']; //Taille de l'image
+        $imageName      = $file['name']; //yoyo.png
+        $imageTmpPath   = $file['tmp_name']; //chemin tampon
+        $imageSize      = $file['size']; //Taille de l'image
         $imageType      = mime_content_type($imageTmpPath); //Type de l'image
 
         if($imageSize > $maxImageSize){
@@ -31,8 +31,9 @@ class Helper {
 
         $imageName = time() . '_' . basename($imageName);
 
-        $destinationPath = BASE_URL . '/' . $destinationPath;
-
+        $destinationPath = __DIR__ . '/../public/' . $destinationPath . '/' . $imageName;
+        
+        var_dump($destinationPath);
         if (!move_uploaded_file($imageTmpPath, $destinationPath)) {
             return ["error" => "Erreur lors de l'envoi de l'image."];
         }

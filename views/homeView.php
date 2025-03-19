@@ -7,7 +7,7 @@
             <form method="post" action="<?php echo BASE_URL; ?>/post/add" enctype="multipart/form-data" >
                 <div class="mb-4">
                     <label for="postImage" class="form-label">Choisir une image</label>
-                    <input class="form-control form-control-lg" id="postImage" type="file">
+                    <input class="form-control form-control-lg" id="postImage" name="image" type="file">
                 </div>
 
                 <div class="mb-4">
