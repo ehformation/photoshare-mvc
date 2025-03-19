@@ -1,6 +1,10 @@
 <?php
+session_start();
+
 use Core\Router;
 use Core\Dispatcher;
+
+define('BASE_URL', '/photoshare/project/public');
 
 spl_autoload_register(function($class) {
     $classPath = str_replace('\\', DIRECTORY_SEPARATOR, $class ) . '.php';

@@ -3,6 +3,8 @@
 namespace Models;
 
 use Core\Model;
+use PDO;
+use PDOException;
 
 class UserModel extends Model{
 

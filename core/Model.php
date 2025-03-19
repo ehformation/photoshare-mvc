@@ -6,7 +6,7 @@ use PDOException;
 
 require_once __DIR__ . '/../config/database.php';
 
-class Model{
+class Model {
     protected static $pdo = null;
 
     public function __construct() {
