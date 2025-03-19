@@ -33,9 +33,9 @@ class AuthController extends Controller {
     }
 
     public function register() {
-        // if(isset($_SESSION['user'])){
-        //     Helper::redirect('/');
-        // }
+        if(isset($_SESSION['user'])){
+            Helper::redirect('/');
+        }
         $this->render('register');
     }
 
@@ -43,7 +43,7 @@ class AuthController extends Controller {
         if(isset($_POST['email'])){
             $email = trim($_POST['email']);
             $username = trim($_POST['username']);
-            $pass = trim($_POST['pass']);
+            $pass = password_hash( trim($_POST['pass']), PASSWORD_BCRYPT);
 
             $userModel = new UserModel();
             $register = $userModel->register($email, $username, $pass);
