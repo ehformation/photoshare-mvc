@@ -1,6 +1,7 @@
 <?php
 
 namespace Core;
+use DateTime;
 
 class Helper {
     public static function redirect($path) {
@@ -39,5 +40,30 @@ class Helper {
         }
 
         return $imageName;
+    }
+
+    //2025-03-20 14:07:54 --> il y'a 5min 
+    public static function calculaleLastUpdate($created) {
+
+        date_default_timezone_set('Europe/Paris');
+
+        $created = new Datetime($created);
+        $now = new Datetime();
+        $diff = $created->diff($now);
+
+        switch(true) {
+            case($diff->y > 0):
+                return "Il y'a " . $diff->y . " an" . ($diff->y > 1 ? 's' : '');
+            case($diff->m > 0):
+                return "Il y'a " . $diff->m . " mois";
+            case($diff->d > 0):
+                return "Il y'a " . $diff->d . " jour" . ($diff->d > 1 ? 's' : '');
+            case($diff->h > 0):
+                return "Il y'a " . $diff->h . " heure" . ($diff->h > 1 ? 's' : '');
+            case($diff->i > 0):
+                return "Il y'a " . $diff->i . " minute" . ($diff->i > 1 ? 's' : '');
+            default:
+                return "A l'instant";
+        }
     }
 }

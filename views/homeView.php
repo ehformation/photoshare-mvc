@@ -26,7 +26,12 @@
             <div class="card mb-3">
                 <img src="<?php echo BASE_URL . "/post-img/" . $post['image'] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text"><?php echo $post['legende'] ?></p>
+                    <div class="card-text">
+                        <h2 class="h5"><?php echo $post['legende'] ?></h2>
+                        <small class="text-muted">
+                            <?php echo $post['created'] ?>
+                        </small>
+                    </div>
                 </div>
             </div> 
         <?php endforeach; ?>

@@ -12,7 +12,7 @@ class PostModel extends Model{
         try {
             $pdo = $this->connectDb();
             
-            $req = $pdo->prepare("SELECT * FROM posts");
+            $req = $pdo->prepare("SELECT * FROM posts ORDER BY created DESC");
             $req->execute();
 
             $posts = $req->fetchAll(PDO::FETCH_ASSOC);
