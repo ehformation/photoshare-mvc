@@ -33,6 +33,14 @@
                         </small>
                     </div>
                 </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <div>
+                        <span><?php echo $post['nbrLikes']; ?> J'aime</span>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
             </div> 
         <?php endforeach; ?>
     <?php endif; ?>
