@@ -23,11 +23,12 @@ class Router {
             }
             
             if($pattern != ''){
-                preg_match($pattern, $requestUrl, $matches);
-                if($route['method'] == strtoupper($requestMethod)){
-                    unset($matches[0]);
-                    $route['params'] = array_values($matches);
-                    return $route;
+                if (preg_match($pattern, $requestUrl, $matches)) {
+                    if ($route['method'] == strtoupper($requestMethod)) {
+                        unset($matches[0]);
+                        $route['params'] = array_values($matches);
+                        return $route;
+                    }
                 }
             }else{
                 if($route['uri'] == $requestUrl && $route['method'] == strtoupper($requestMethod)){
