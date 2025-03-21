@@ -23,6 +23,20 @@ class LikeModel extends Model{
             error_log("Erreur SQL countLikesByPostId: " . $e->getMessage());
             return false;
         }
-        
+    }
+
+    public function addLike($post_id, $user_id) {
+        try{
+            $pdo = $this->connectDb();
+            
+            $req = $pdo->prepare("INSERT INTO likes(user_id, post_id) VALUES (?, ?)");
+            $response = $req->execute([$user_id, $post_id]);
+
+            return $response;
+
+        }catch (PDOException $e) {
+            error_log("Erreur SQL addLike: " . $e->getMessage());
+            return false;
+        }
     }
 }

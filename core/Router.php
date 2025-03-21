@@ -15,10 +15,25 @@ class Router {
     }
 
     public static function match($requestUrl, $requestMethod){
-        foreach (self::$routes as $route) {
-            if($route['uri'] == $requestUrl && $route['method'] == strtoupper($requestMethod)){
-                return $route;
+        foreach (self::$routes as &$route) {
+            $pattern = ''; 
+            if(strpos($route['uri'], '{') != false){
+                $pattern = preg_replace('/\{([a-zA-Z0-9_]+)\}/', '([^/]+)', $route['uri']);
+                $pattern = '#^' . $pattern . '$#';
             }
+            
+            if($pattern != ''){
+                preg_match($pattern, $requestUrl, $matches);
+                if($route['method'] == strtoupper($requestMethod)){
+                    unset($matches[0]);
+                    $route['params'] = array_values($matches);
+                    return $route;
+                }
+            }else{
+                if($route['uri'] == $requestUrl && $route['method'] == strtoupper($requestMethod)){
+                    return $route;
+                }
+            }            
         }
     }
 
@@ -31,6 +46,8 @@ class Router {
         self::add('GET', '/logout', 'AuthController@logout');
 
         self::add('POST', '/post/add', 'PostController@addPost');
+
+        self::add('GET', '/like/add/{post_id}', 'LikeController@addLike');
     }
 
 }

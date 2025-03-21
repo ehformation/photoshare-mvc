@@ -38,7 +38,7 @@
                         <span><?php echo $post['nbrLikes']; ?> J'aime</span>
                     </div>
                     <div>
-
+                        <a href="<?php echo BASE_URL ?>/like/add/<?php echo $post['id'] ?>">Like</a>
                     </div>
                 </div>
             </div> 

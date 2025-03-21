@@ -29,10 +29,13 @@ class Dispatcher {
 
         if(!method_exists($controller, $method)){
             echo "<h1>500 - Methode introuvable : $method dans la class $controllerClass</h1>";
-           exit();
+            exit();
         }
-
-        $controller->$method();
+        if (!empty($route['params'])) {
+            call_user_func_array([$controller, $method], $route['params']);
+        } else {
+            $controller->$method();
+        }
 
     }
 
